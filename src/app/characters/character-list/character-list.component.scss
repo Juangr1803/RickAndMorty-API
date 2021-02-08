@@ -1,0 +1,110 @@
+// ----------------- Variables ----------------
+$base--color: #14183d;
+$base-dark--color: #000000;
+$base-blue--color: #0599ab;
+$base-green--color: #5c923f;
+$text--color: #ffffff;
+
+// ----------------- Character-list ----------------
+
+.list {
+  width: 100%;
+  padding: 100px 0 0;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  column-gap: 4rem;
+  grid-auto-rows: minmax(auto, 300px);
+}
+
+.list__item {
+  height: 300px;
+  width: 100%;
+  min-width: 140px;
+  max-width: 280px;
+  border-radius: 5px;
+  justify-self: center;
+  &:hover {
+    transition: 0.4s all ease;
+    box-shadow: 0px 0px 40px 10px rgb(255 255 255 / 30%);
+    cursor: pointer;
+  }
+}
+.list__item a {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-list {
+  width: 20rem;
+  height: 5rem;
+  grid-column: 1;
+  justify-self: center;
+  align-self: center;
+  font-size: 1.8rem;
+}
+
+.btn-list-danger {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 3rem;
+  grid-column: 1;
+  position: fixed;
+  bottom: 1rem;
+  right: 5rem;
+  visibility: visible;
+  scroll-behavior: smooth;
+  text-align: center;
+  padding: 0;
+  outline: none;
+}
+
+@media (min-width: 480px) {
+  .list-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .list {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .btn-list {
+    grid-column: 1/3;
+  }
+  .btn-list-danger {
+    right: 1rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .list-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .list {
+    width: 90%;
+  }
+  .btn-list {
+    grid-column: 2/3;
+  }
+}
+
+@media (min-width: 768px) {
+  .list-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .btn-list {
+    width: 50rem;
+    grid-column: 2/4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .list-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .btn-list {
+    grid-column: 2/5;
+  }
+}

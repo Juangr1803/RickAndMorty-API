@@ -1,0 +1,146 @@
+// ----------------- Variables ----------------
+$base--color: #14183d;
+$base-dark--color: #000000;
+$base-blue--color: #0599ab;
+$base-green--color: #5c923f;
+$text--color: #ffffff;
+
+// ----------------- Header ----------------
+
+.header {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  background: linear-gradient(to right, $base-dark--color, $base--color);
+  overflow: hidden;
+  border: 2px solid $base--color;
+  box-shadow: 3px 3px 3px 5px $base--color;
+  transition: 1s all ease;
+}
+.header:hover {
+  box-shadow: 3px 3px 25px 5px $base--color;
+  transition: 1s all ease;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 255, 0.2);
+}
+
+.header-container {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  display: grid;
+  left: 0%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "menu tabs ";
+  transition: 3s all ease;
+}
+.header-container:hover {
+  left: -100%;
+  transition: 3s all ease;
+}
+.header-container figure {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "image image image image icon";
+  align-self: center;
+  width: 100%;
+}
+
+.header-logo__image {
+  justify-self: end;
+  align-self: center;
+  grid-area: image;
+  width: 220px;
+}
+.header-container figure i {
+  justify-self: end;
+  align-self: center;
+}
+
+.header-logo__icon {
+  grid-area: icon;
+  width: 50px;
+}
+
+// -------- Navbar---------
+.header-menu {
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+}
+
+.header-menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.header-menu a {
+  color: $text--color;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.header-menu a:hover {
+  color: $base-blue--color;
+}
+
+.header-menu a:active {
+  color: $base-blue--color;
+}
+
+@media (min-width: 480px) {
+  i .header-logo__icon {
+    display: none;
+  }
+
+  .header-logo__image {
+    justify-self: center;
+  }
+
+  .header-container figure {
+    grid-template-areas: "image image image image image";
+  }
+
+  .header-container {
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-container:hover {
+    left: 0%;
+  }
+  .header-container figure {
+    grid-column: 1;
+  }
+
+  .header-menu {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .header-container figure {
+    grid-column: 2;
+  }
+
+  .header-menu {
+    grid-column: 4;
+    a {
+      margin: 20px;
+    }
+  }
+}

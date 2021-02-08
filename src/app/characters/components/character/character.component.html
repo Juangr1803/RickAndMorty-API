@@ -1,0 +1,10 @@
+<figure class="list-item__content--img">
+  <img [src]="character.image" [alt]="character.name" class="list-item__img" />
+</figure>
+<div class="list-item__details">
+  <h2 class="list-item__details--name">{{ character.name }}</h2>
+  <h4 class="list-item__details--gender">{{ character.gender }}</h4>
+  <small class="list-item__details--created">{{
+    character.created | date
+  }}</small>
+</div>

@@ -1,0 +1,56 @@
+<section class="character" *ngIf="character$ | async as character">
+  <h1 class="title">
+    {{ character.name }}
+  </h1>
+  <div class="character-container">
+    <app-character
+      [character]="character"
+      class="character__item"
+    ></app-character>
+    <!-- Details -->
+    <div class="character-container__details" *ngIf="characterByEpisode">
+      <h1 *ngIf="!hiddenEpisodes" class="character-details__title">
+        Episodes of
+      </h1>
+      <h1 *ngIf="!hiddenEpisodes" class="character-details__name">
+        {{ character.name }}
+      </h1>
+
+      <div *ngIf="!hiddenEpisodes">
+        <div
+          class="character-details__episode"
+          *ngFor="let episode of characterEpisodes"
+        >
+          <a
+            type="button"
+            style="cursor: pointer"
+            (click)="getCharactersEpisodes(episode)"
+          >
+            <h4>
+              {{ episode.name }}
+            </h4>
+          </a>
+        </div>
+      </div>
+      <h1 *ngIf="hiddenEpisodes" class="character-details__name character-name">
+        Characters
+      </h1>
+      <div *ngIf="characterByEpisode" class="character-container">
+        <button
+          class="btn btn-danger btn-character-danger"
+          *ngIf="hiddenEpisodes"
+          type="button"
+          (click)="deleteCharacterByEpisode()"
+        >
+          x
+        </button>
+        <app-character
+          *ngFor="let cha of characterByEpisode"
+          [character]="cha"
+          class="character__item"
+        ></app-character>
+      </div>
+    </div>
+    <!-- Details -->
+  </div>
+</section>

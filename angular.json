@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "rick-and-morty"
+  "defaultProject": "rick-and-morty",
+  "cli": {
+    "analytics": false
+  }
 }
